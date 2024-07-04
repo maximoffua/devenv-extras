@@ -20,9 +20,7 @@
           inherit (config.packages) supabase-cli;
         };
 
-        packages = {
-          inherit (import ./pkgs/supabase.nix args) supabase-cli;
-        };
+        packages = import ./pkgs args;
       };
       flake = {
       };
