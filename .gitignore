@@ -1,0 +1,5 @@
+# Devenv
+.devenv*
+.direnv/
+
+/result
