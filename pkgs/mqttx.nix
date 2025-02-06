@@ -8,7 +8,7 @@
 
 let
   pname = "mqttx";
-  version = "1.10.1";
+  version = "1.11.1";
 
   suffixedUrl =
     suffix:
@@ -20,7 +20,7 @@ let
     };
     "x86_64-linux" = fetchurl {
       url = suffixedUrl "";
-      hash = "sha256-+TyZnx3/qraoA3rcpIDKedGyTzFvdaAE/v4pzXrB0zU=";
+      hash = "sha256-rqzh4whp8NaeQb98mKTu+hL3RXQBEOKgvJKwLhzu+hg=";
     };
   };
 
