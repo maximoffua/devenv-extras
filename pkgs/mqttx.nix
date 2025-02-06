@@ -46,6 +46,8 @@ appimageTools.wrapType2 {
       --replace 'Exec=AppRun' 'Exec=${pname}'
   '';
 
+  extraPkgs = pkgs: [ pkgs.xorg.libxshmfence ];
+
   meta = with lib; {
     description = "Powerful cross-platform MQTT 5.0 Desktop, CLI, and WebSocket client tools";
     homepage = "https://mqttx.app/";
