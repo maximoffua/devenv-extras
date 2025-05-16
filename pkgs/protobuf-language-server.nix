@@ -21,6 +21,7 @@ buildGoModule (finalAttrs: {
   meta = with lib; {
     homepage = "https://github.com/lasorda/protobuf-language-server";
     description = "A language server implementation for Google Protocol Buffers.";
+    mainProgram = finalAttrs.pname;
     license = licenses.asl20;
   };
 })

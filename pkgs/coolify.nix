@@ -30,6 +30,7 @@ buildGoModule (finalAttrs: {
   meta = with lib; {
     homepage = "https://github.com/coollabsio/coolify-cli";
     description = "CLI for Coolify self-hosted PaaS.";
+    mainProgram = "coolify";
     license = licenses.mit;
   };
 })
