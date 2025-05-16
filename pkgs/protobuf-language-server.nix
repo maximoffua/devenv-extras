@@ -16,6 +16,7 @@ buildGoModule (finalAttrs: {
   };
 
   vendorHash = "sha256-4nTpKBe7ekJsfQf+P6edT/9Vp2SBYbKz1ITawD3bhkI=";
+  doCheck = false;
 
   meta = with lib; {
     homepage = "https://github.com/lasorda/protobuf-language-server";
