@@ -17,7 +17,7 @@
         # module parameters provide easy access to attributes of the same
         # system.
         overlayAttrs = {
-          inherit (config.packages) supabase-cli;
+          inherit (config.packages) supabase-cli coolify-cli protobuf-language-server;
         };
 
         packages = import ./pkgs args;
