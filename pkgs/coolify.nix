@@ -1,6 +1,8 @@
 { lib
+, stdenv
 , fetchFromGitHub
 , buildGoModule
+, installShellFiles
 }:
 
 buildGoModule (finalAttrs: {
@@ -16,10 +18,18 @@ buildGoModule (finalAttrs: {
   };
 
   vendorHash = "sha256-HJebDj7dbmZEFHL/guJqRVPa9KDdQ7Q/PZp6IrtmGgk=";
+  nativeBuildInputs = [ installShellFiles ];
+  postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
+    mv -v $out/bin/coolify{-cli,}
+    installShellCompletion --cmd coolify \
+      --bash <($out/bin/coolify completion bash) \
+      --zsh <($out/bin/coolify completion zsh) \
+      --fish <($out/bin/coolify completion fish)
+  '';
 
   meta = with lib; {
     homepage = "https://github.com/coollabsio/coolify-cli";
-    description = " CLI for Coolify self-hosted PaaS.";
+    description = "CLI for Coolify self-hosted PaaS.";
     license = licenses.mit;
   };
 })
