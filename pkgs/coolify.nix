@@ -7,7 +7,7 @@
 
 buildGoModule (finalAttrs: {
   pname = "coolify-cli";
-  version = "0.0.1";
+  version = "0.0.2-rc1";
 
   src = fetchFromGitHub {
     owner = "coollabsio";
@@ -18,6 +18,12 @@ buildGoModule (finalAttrs: {
   };
 
   vendorHash = "sha256-HJebDj7dbmZEFHL/guJqRVPa9KDdQ7Q/PZp6IrtmGgk=";
+  ldflags = [
+    "-s"
+    "-w"
+    "-X=github.com/coollabsio/coolify-cli/cmd.CliVersion=${finalAttrs.version}"
+  ];
+
   nativeBuildInputs = [ installShellFiles ];
   postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
     mv -v $out/bin/coolify{-cli,}
